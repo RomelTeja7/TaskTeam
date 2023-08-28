@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="description" content="Welcome to taskteam">
+            <title>TaskTeam</title>
+            <link rel="icon" type="image/x-icon" href="#">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+        </head>
+        <body>
+            <header>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">TASKTEAM</a>
+                        <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-mdb-toggle="collapse"
+                            data-mdb-target="#navbarNavAltMarkup"
+                            aria-controls="navbarNavAltMarkup"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                            >
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">                              
+                                <a class="nav-link" th:href="@{/dashboard}">Dashboard</a>
+                                <a class="nav-link" th:href="@{/admin/employees}">Employees</a>
+                                <a class="nav-link" th:href="@{/admin/adminTasks}">Tasks</a>
+                            </div>
+                        </div>
+                        <span class="navbar-text navbar-nav">              
+                            <a class="nav-link" th:text="${username}"></a>
+                            <a style="background-color: black; color: white" class="nav-link" th:href="@{/logout}">Logout</a>
+                        </span>
+                    </div>
+                </nav>
+
+            </header>
+
+            <script
+                type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"
+            ></script>
+        </body>
+    </html>
+

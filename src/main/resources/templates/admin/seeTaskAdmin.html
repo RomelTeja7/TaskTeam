@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>See Task</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    </head>
+    <body>
+        <header th:replace="./fragments/headerAdmin :: header"></header>
+        <div class="container-fluid h-100 bg-light text-dark">
+            <div class="row justify-content-center align-items-center">
+                <h1>See Task</h1>    
+            </div>
+            <hr/>
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <form th:object="${taskSee}" method="post">
+                        <div class="form-group">
+                            <label for="id">ID:</label>
+                            <input type="text"  class="form-control" th:field="*{id}" readonly/><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Title:</label>
+                            <input type="text"  class="form-control" th:field="*{title}" id="title" readonly/><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                             <textarea  class="form-control" id="description" name="description" rows="3"  th:field="*{description}" readonly/><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskStart">Task Start:</label>
+                            <input type="text"  class="form-control" th:field="*{taskStart}" id="taskStart" readonly/><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskEnd">Task End:</label>
+                            <input type="text"  class="form-control" th:field="*{taskEnd}" id="taskEnd" readonly/><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status:</label>
+                            <input type="text"  class="form-control" th:field="*{status.name_status}" id="status" readonly/><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="employee">Leader:</label>
+                            <input type="text"  class="form-control" th:field="*{employee.name}" id="employee" readonly/><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="group_type">Group:</label>
+                            <input type="text"  class="form-control" th:field="*{group.name}" id="group_type" readonly/><br>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer th:replace="./fragments/footer :: footer"></footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

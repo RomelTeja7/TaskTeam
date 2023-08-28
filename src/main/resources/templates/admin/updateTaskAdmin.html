@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create Task</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    </head>
+    <body>
+        <header th:replace="./fragments/headerAdmin :: header"></header>
+        <div class="container-fluid h-100 bg-light text-dark">
+            <div class="row justify-content-center align-items-center">
+                <h1>Update Task</h1>    
+            </div>
+            <hr/>
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <form th:object="${taskUp}" th:action="@{/admin/updateAdminTask}" method="post">
+                        <input type="hidden" class="form-control" th:field="*{id}"/>
+                        <div class="form-group">
+                            <label for="name">Title:</label>
+                            <input type="text" id="title" name="title" class="form-control" th:field="*{title}" required /><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea class="form-control" id="description" name="description" rows="3" th:field="*{description}" ></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Task Start:</label>
+                            <input type="date" name="taskStart" id="taskStart" class="form-control" th:field="*{taskStart}" /><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Task End:</label>
+                            <input type="date" name="taskEnd" id="taskEnd" class="form-control" th:field="*{taskEnd}" /><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="status_id">Status:</label>
+                            <select name="status" th:field="*{status.status_id}" required class="form-control">
+                                <option th:each="stat : ${status}" th:value="${stat.status_id}" th:text="${stat.name_status}"></option>
+                            </select><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="employee_id">Leader:</label>
+                            <select name="employee" th:field="*{employee.employee_id}" required class="form-control">
+                                <option th:each="leadr : ${employee}" th:value="${leadr.employee_id}" th:text="${leadr.name}"></option>
+                            </select><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="group_id">Group:</label>
+                            <select th:field="*{group.group_id}" name="group" required class="form-control">
+                                <option th:each="groups : ${group}" th:value="${groups.group_id}" th:text="${groups.name}"></option>
+                            </select><br>
+                        </div>
+
+                        <br>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-warning form-control"  value="Update"/>
+                        </div>
+                    </form>     
+                </div>
+            </div>
+        </div>
+
+        <footer th:replace="./fragments/footer :: footer"></footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
